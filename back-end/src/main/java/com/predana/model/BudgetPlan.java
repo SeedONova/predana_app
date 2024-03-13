@@ -20,12 +20,6 @@ public class BudgetPlan {
     @Column(name = "budget_id", nullable = false)
     private String id;
 
-    @Column(name = "category_id", nullable = false)
-    private String categoryId;
-
-    @Column(name = "user_id", nullable = false)
-    private String userId;
-
     @Column(name = "limit_amount", nullable = false)
     private Double limitAmount;
 
@@ -33,4 +27,12 @@ public class BudgetPlan {
     private Date dateCreated;
 
     private boolean deleted = Boolean.FALSE;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 }

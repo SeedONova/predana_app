@@ -19,20 +19,22 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "transaction_id", nullable = false)
     private String id;
-
-    @Column(name = "user_id")
-    private String userId;
-
-    @Column(name = "category_id")
-    private String categoryId;
-
+    
     @Column(name = "transaction_amount")
     private Double amount;
-
+    
     @Column(name = "transaction_date")
     private Date date;
-
+    
     private String description;
-
+    
     private boolean deleted = Boolean.FALSE;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 }

@@ -1,9 +1,11 @@
 package com.predana.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
+import java.util.List;
 
 @Entity
 @Table(name = "p_user")
@@ -31,4 +33,13 @@ public class User {
     private Date DateCreated;
 
     private boolean deleted = Boolean.FALSE;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    List<Category> categories = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    List<Transaction> transactions = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    List<BudgetPlan> budgetPlans = new ArrayList<>();
 }
