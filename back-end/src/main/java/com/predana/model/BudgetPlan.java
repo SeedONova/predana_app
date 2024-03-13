@@ -2,6 +2,9 @@ package com.predana.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.Date;
+
 import org.hibernate.annotations.SQLDelete;
 
 @Entity
@@ -25,6 +28,9 @@ public class BudgetPlan {
 
     @Column(name = "limit_amount", nullable = false)
     private Double limitAmount;
+
+    @Column(name = "date_created", nullable = false)
+    private Date dateCreated;
 
     private boolean deleted = Boolean.FALSE;
 }

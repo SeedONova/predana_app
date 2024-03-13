@@ -28,6 +28,9 @@ public class Category {
 
     @Column(name = "category_icon", nullable = false)
     private String categoryIcon;
-    
+
+    @Column(name = "custom_category", nullable = false)
+    private boolean customCategory = Boolean.FALSE;
+
     private boolean deleted = Boolean.FALSE;
 }
